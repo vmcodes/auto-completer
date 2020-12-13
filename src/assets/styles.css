@@ -1,0 +1,23 @@
+.wrapper {
+  top: 180px;
+  left: 40%;
+  position: absolute;
+}
+
+.maintain-width {
+  position: absolute;
+  width: 100%;
+}
+
+.dropdown-position {
+  cursor: pointer;
+  z-index: 999;
+  position: relative;
+  bottom: -50%;
+  cursor: pointer;
+}
+
+.input-padding {
+  padding: 18px;
+  width: 300px;
+}
