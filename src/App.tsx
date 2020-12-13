@@ -3,25 +3,27 @@ import { Countries } from "./Countries";
 import "./assets/styles.css";
 
 const App: React.FC = () => {
-  const [country, setCountry] = React.useState<JSX.Element[] | null>(null);
+  const [countries, setCountries] = React.useState<JSX.Element[] | null>(null);
   const [countryValue, setCountryValue] = React.useState<string>("");
 
   const selectCountry = (country: string) => {
-    setCountry(null);
+    setCountries(null);
     setCountryValue(country);
   };
 
-  const renderCountries = (country: string) => {
+  const renderCountries = (location: string) => {
     let countryList: JSX.Element[] = [];
 
-    Countries.forEach((x) => {
-      if (x.name.toLowerCase().includes(country.toLowerCase())) {
+    Countries.forEach((country) => {
+      if (country.name.toLowerCase().includes(location.toLowerCase())) {
         countryList.push(
           <div>
             <input
-              value={x.name}
-              onClick={() => selectCountry(x.name)}
+              key={country.code}
+              value={country.name}
+              onClick={() => selectCountry(country.name)}
               className="dropdown-position input-padding"
+              readOnly
             />
           </div>
         );
@@ -30,12 +32,12 @@ const App: React.FC = () => {
 
     countryList.sort();
 
-    if (country.length > 0) {
-      setCountryValue(country);
-      setCountry(countryList.slice(0, 5));
+    if (location.length > 0) {
+      setCountryValue(location);
+      setCountries(countryList.slice(0, 5));
     } else {
-      setCountryValue(country);
-      setCountry(countryList.slice(0, 0));
+      setCountryValue(location);
+      setCountries(countryList.slice(0, 0));
     }
   };
 
@@ -43,14 +45,12 @@ const App: React.FC = () => {
     <div className="wrapper">
       <label>Country:</label>
       <div>
-        <br />
-
         <input
           value={countryValue}
           onChange={(e) => renderCountries(e.target.value)}
           className="input-padding"
         />
-        {country}
+        {countries}
       </div>
     </div>
   );
