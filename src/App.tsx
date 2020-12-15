@@ -18,6 +18,8 @@ const App: React.FC<UserProps> = ({ Data, classes, length }) => {
   const renderList = (userInput: string) => {
     let options: JSX.Element[] = [];
 
+    Data.sort();
+
     Data.forEach((item: string, index: number) => {
       if (item.toLowerCase().includes(userInput.toLowerCase())) {
         options.push(
@@ -33,8 +35,6 @@ const App: React.FC<UserProps> = ({ Data, classes, length }) => {
         );
       }
     });
-
-    options.sort();
 
     if (userInput.length > 0) {
       setSelection(userInput);

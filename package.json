@@ -1,9 +1,14 @@
 {
   "name": "@vmcodes/auto-completer",
-  "version": "0.1.0",
-  "private": false,
+  "version": "0.1.2",
+  "description": "react auto complete",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vmcodes/auto-completer.git"
+  },
   "license": "MIT",
-  "main": "./lib/AutoCompleter.js",
+  "private": false,
+  "main": "./dist/AutoCompleter.js",
   "scripts": {
     "build": "webpack"
   },

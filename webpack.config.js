@@ -4,7 +4,7 @@ module.exports = {
   mode: "production",
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve("lib"),
+    path: path.resolve("dist"),
     filename: "AutoCompleter.js",
     libraryTarget: "commonjs2",
   },
